@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
+from fastapi.responses import RedirectResponse
 from dotenv import load_dotenv
 from urllib.parse import quote
 import requests
@@ -156,7 +157,9 @@ async def search(
         user_location=user_location,
         max_results=max_results
     )
-
+@app.get("/")
+async def root():
+    return RedirectResponse(url="/static/index.html")
 
 if __name__ == "__main__":
     import uvicorn
