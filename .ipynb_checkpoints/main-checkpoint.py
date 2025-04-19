@@ -5,11 +5,6 @@ import time
 import os
 from urllib.parse import quote
 from dotenv import load_dotenv
-from fastapi.staticfiles import StaticFiles
-
-# 挂载 static/ 目录为 / 路由根目录
-app.mount("/", StaticFiles(directory="static", html=True), name="static")
-
 
 # Load environment variables
 load_dotenv()
