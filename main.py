@@ -41,6 +41,8 @@ def build_google_search_url(
     start_index: int,
     results_per_page: int = 10
 ) -> str:
+    if not search_terms or search_terms.strip().lower() == "null":
+        search_terms = ""
     url = (
         f"https://www.googleapis.com/customsearch/v1?q={quote(search_terms)}"
         f"&key={API_KEY}&cx={SEARCH_ENGINE_ID}"
