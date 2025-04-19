@@ -16,7 +16,7 @@ SEARCH_ENGINE_ID = os.getenv("SEARCH_ENGINE_ID")
 app = FastAPI(title="Google Search API")
 
 # Mount static directory to serve HTML frontend
-app.mount("/", StaticFiles(directory="static", html=True), name="static")
+app.mount("/static", StaticFiles(directory="static", html=True), name="static")
 
 # Enable CORS for frontend JS calls
 app.add_middleware(
