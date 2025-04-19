@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: gs_app
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port 10000
+    envVars:
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: SEARCH_ENGINE_ID
+        sync: false
+    plan: free
