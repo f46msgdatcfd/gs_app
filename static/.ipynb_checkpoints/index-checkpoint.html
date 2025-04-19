@@ -76,7 +76,7 @@
             };
 
             const queryString = new URLSearchParams(params).toString();
-            const apiUrl = `/search?${queryString}`;
+            const apiUrl = `http://localhost:8000/search?${queryString}`;
 
             const resultsDiv = document.getElementById('results');
             resultsDiv.innerHTML = '<p>Loading...</p>';
