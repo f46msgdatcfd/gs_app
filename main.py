@@ -7,16 +7,14 @@ from urllib.parse import quote
 from dotenv import load_dotenv
 from fastapi.staticfiles import StaticFiles
 
-# 挂载 static/ 目录为 / 路由根目录
-app.mount("/", StaticFiles(directory="static", html=True), name="static")
-
-
 # Load environment variables
 load_dotenv()
 API_KEY = os.getenv("GOOGLE_API_KEY")
 SEARCH_ENGINE_ID = os.getenv("SEARCH_ENGINE_ID")
 
 app = FastAPI(title="Google Search API")
+# 挂载 static/ 目录为 / 路由根目录
+app.mount("/", StaticFiles(directory="static", html=True), name="static")
 
 app.add_middleware(
     CORSMiddleware,
